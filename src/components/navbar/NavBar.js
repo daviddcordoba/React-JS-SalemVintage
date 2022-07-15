@@ -1,13 +1,40 @@
-import '../navbar/NavBar.css'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown'; /* Este es para 'productos' que desde el se despliegan mas navlinks */
 
-const NavBar = () => {
-
-    return (
-        <div>
-            <h1 className='soyunlogo'>SalemVintage</h1>
-        </div>
-    )
-
+function NavBar() {
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">SalemVintage</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#features">Inicio</Nav.Link>
+            <Nav.Link href="#pricing">Nosotros</Nav.Link>
+            <NavDropdown title="Productos" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Pantalones
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Camperas</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Ver Mas
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">Contacto</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Ayuda
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default NavBar
+export default NavBar;
