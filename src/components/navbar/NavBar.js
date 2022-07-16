@@ -34,7 +34,7 @@ function NavBar() {
             </Nav.Link>
           </Nav>
           <Nav>
-          <Nav.Link href="#deets"> <CartWidget/> </Nav.Link> {/* aca esta el CartWidget */}
+          <Nav.Link href="#deets"> <CartWidget/> </Nav.Link> {/* aca esta el icono del carrito */}
           </Nav>
         </Navbar.Collapse>
       </Container>
