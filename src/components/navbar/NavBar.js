@@ -1,8 +1,9 @@
-import './NavBar.css'
+import './NavBar.scss'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'; /* Este es para 'productos' que desde el se despliegan mas navlinks */
+import CartWidget from './CartWidget';
 
 function NavBar() {
   return (
@@ -31,6 +32,9 @@ function NavBar() {
             <Nav.Link eventKey={2} href="#memes">
               Ayuda
             </Nav.Link>
+          </Nav>
+          <Nav>
+          <Nav.Link href="#deets"> <CartWidget/> </Nav.Link> {/* aca esta el CartWidget */}
           </Nav>
         </Navbar.Collapse>
       </Container>

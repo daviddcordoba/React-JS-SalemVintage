@@ -1,0 +1,23 @@
+.list-products {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: violet;
+    
+    h2{
+        color: green;
+    }
+
+    .products-container{
+        background-color: gray;
+        display: flex;
+        
+
+            .product{
+                background-color: aqua;
+                width: 100px;
+                margin-left: 10px;
+                
+            }
+    }
+}
