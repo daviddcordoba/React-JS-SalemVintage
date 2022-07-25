@@ -1,11 +1,11 @@
 .list-products {
-    float: left;
+    text-align: center;
     width: 100%;
     margin-bottom: 20px;
     background-color: violet;
     
     h2{
-        color: green;
+        color: whitesmoke;
     }
 
     .products-container{
@@ -13,10 +13,33 @@
         display: flex;
         
 
-            .product{
-                background-color: aqua;
+        
+            .item-product{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
                 width: 100px;
                 margin-left: 10px;
+                border: 5px solid;
+
+                img{
+                    object-fit: contain;
+                }
+
+                
+                .contadorProductos{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    p{
+                        margin-top: 12px;
+                    }
+                }
+                button{
+                    background-color: #fc036b;
+                    color: whitesmoke;
+                }
                 
             }
     }
