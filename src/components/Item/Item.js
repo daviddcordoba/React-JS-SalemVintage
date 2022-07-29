@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './ItemProduct.scss'
+import './Item.scss'
 
-const ItemProduct = ({data}) => {
-
-    const [contador,setContador] = useState(1)
+const Item = ({data}) => {
 
     const {title,price,image,stock}=data
+    const [contador,setContador] = useState(1)
+
 
 
 
@@ -34,7 +34,7 @@ const ItemProduct = ({data}) => {
     )
 }
 
-export default ItemProduct
+export default Item
 
 
 

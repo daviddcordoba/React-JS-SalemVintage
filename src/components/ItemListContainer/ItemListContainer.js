@@ -1,20 +1,37 @@
-
-import ItemProduct from '../ItemProduct/ItemProduct'
+import { useEffect, useState} from 'react'
 import './ItemListContainer.scss'
+import products from '../../utils/products.mock'
+import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = ({titulo}) => {
-    const product1 ={
-        title: 'Camisa Black Lillies',
-        price: 10000,
-        image: "https://sc04.alicdn.com/kf/HLB1iMKPU3HqK1RjSZFEq6AGMXXac.jpg",
-        stock: 6
-    }
+
+    const [listProducts, setListProducts] = useState([])
+
+    const getProducts = new Promise( (resolve,reject) => {
+        setTimeout( () => {
+            resolve(products)
+        }
+        ,2000)
+        
+    })
+
+    useEffect ( () =>{
+        getProducts
+                    .then( res => {
+                        setListProducts(res)
+                    })
+                    .catch( error => {
+                        console.log('error:', error);
+                    })
+
+    }, [] )
     
     return(
         <div className='list-products'>
             <h2>{titulo}</h2>
+        
             <div className='products-container'> 
-            <ItemProduct data={product1} />
+                <ItemList dataProducts={listProducts} />
             </div>
 
             
