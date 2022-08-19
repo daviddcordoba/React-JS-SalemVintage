@@ -1,0 +1,54 @@
+.detalle-producto{
+    margin-top:80px;
+
+    .descriptionProduct{
+        
+        h4{
+            margin-top: 10px;
+        }
+        select{
+            text-align: center;
+            height: 30px;
+            font-size: small;
+            width: 100%;
+            
+        }
+        .subFila{
+            
+            margin-top: 10px;
+            display: flex;
+            
+            align-items: center;
+            
+    
+            .contadorProductos{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-right: 30px;
+                
+                p{
+                    padding-top: 10px;
+                    padding-right: 10px;
+                }
+                button{
+                    font-size: 15px;                    
+                    background-color: #f2e5d7;
+                    color: #262322;
+                    
+                    margin-right: 10px;
+                    padding: 2px;
+                }
+            }
+            
+        }
+        h3{
+            margin-top: 20px;
+        }
+
+
+    }
+
+    
+}
+

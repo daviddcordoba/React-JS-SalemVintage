@@ -1,0 +1,56 @@
+/* Navegador */
+.navBar{
+    background-color:#f2e5d7; //posible color primario
+    color: #262322; //posible color secundario
+
+    a{
+        text-decoration: none;
+        color: #262322;
+        font-weight: bold;
+
+        &:hover{
+            transition: 0.3s;
+            color: #643e15;
+        }
+    }
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-left: 10%;
+        padding-right: 24%;
+
+        h2{
+            font-size: 28px;
+            span{
+                font-weight: bold;
+            }
+        }
+
+        ul{
+            li{
+                list-style: none;
+                display: inline-block;
+                padding: 10px 20px;
+                
+            }
+        }
+    }
+
+    .cart{
+        justify-content: center;
+        justify-items: center;
+
+
+        /* padding: 10px; */
+        
+        &:hover{
+            transform: scale(1.07);
+            
+            
+        }
+
+    }
+}
+

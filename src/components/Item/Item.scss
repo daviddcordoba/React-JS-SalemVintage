@@ -1,0 +1,46 @@
+.link{
+    text-decoration: none;
+    color: black;
+    
+}
+.item-product{
+                
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    margin-left: 10px;
+    border: 2px solid none;
+    &:hover{
+        transform: scale(1.025);
+        transition: 0.7s;
+    }
+    object-fit:contain;
+
+    img{
+         //las imagenes de la carta tienen repetan este tamanio
+        height:400px;
+        width: 100%; 
+        
+        
+    }
+
+    
+    .contadorProductos{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        p{
+            margin-top: 12px;
+        }
+    }
+    button{
+        background-color: #f2e5d7;
+        color: #262322;
+    }
+    
+}
+
+/* background-color:#f2e5d7; //posible color primario
+    color: #262322; //posible color secundario */

@@ -1,0 +1,18 @@
+.cartContainer{
+    margin: 80px auto;
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        th{
+            text-align: left;
+            padding: 5px;
+            background-color: #f2e5d7;
+            color: #262322;
+            
+        }
+        td{
+            padding: 10px 5px;
+        }
+    }
+}
