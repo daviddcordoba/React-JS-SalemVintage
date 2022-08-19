@@ -36,7 +36,7 @@ function NavBar() {
 
           <li >
               <Dropdown>
-                <Dropdown.Toggle className='' variant="" id="dropdown-basic">
+                <Dropdown.Toggle  variant="" id="dropdown-basic">
                   Productos
                 </Dropdown.Toggle>
 
