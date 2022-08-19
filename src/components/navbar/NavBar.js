@@ -34,6 +34,16 @@ function NavBar() {
             Productos
           </li>
           </Link>
+          <Link to='/categoria/camisas'>
+          <li >
+            Camisas
+          </li>
+          </Link>
+          <Link to='/categoria/pantalones'>
+          <li >
+            Pantalones
+          </li>
+          </Link>
           <Link to='/contacto'>
           <li >
             Contacto
