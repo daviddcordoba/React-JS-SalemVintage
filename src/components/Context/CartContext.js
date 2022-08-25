@@ -11,14 +11,17 @@ const CartProvider = ({children}) => {  // componente q recibe un children(hijos
     const addToCart = (dataProduct,contador) => {
 
         const item = cart.find(prod => prod.id === dataProduct.id) // se crea si el elemento ya esta en el carrito
-
+        
         if(item) // existe item?
         {
             if(contador > 1){ // ademas, me esta llegando una cantidad seleccionada
                 item.quantity+=contador; // entonces a la cantidad de mi producto(que ya esta en el carrito) le sumo la cantidad seleccionada
             }
             else{ // si no me estaa llegando una cantidad seleccionada => aumento en uno la cantidad de mi producto
-                item.quantity++ 
+                item.quantity++
+                console.log('entre:',item.quantity);
+                console.log(item.id);
+                setCart([...cart])
             }
         }
         else{ // NO existe item(no esta en el carrito)

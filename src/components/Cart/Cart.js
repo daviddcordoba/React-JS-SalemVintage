@@ -21,9 +21,9 @@ const Cart = () => {
 
     const order ={
         buyer:{
-            name: formData.name,
-            email:formData.email,
-            phone:formData.phone
+            name: '',
+            email:'',
+            phone:''
         },
         items: cart.map(product => ({
             id : product.id,
@@ -47,7 +47,7 @@ const Cart = () => {
 
         addDoc(ordersCollection,newOrder)
                                         .then( setTimeout(() => {setShowForm(false)}, 2000))
-                                        .catch( error => console.log('erro:', error))
+                                        .catch( error => console.log('error:', error))
         
         
     }
@@ -85,7 +85,10 @@ const Cart = () => {
                                     </table>)
             }
             
-            {showForm && (<form onSubmit={sendData}>
+            {showForm && (
+                    <div>
+                        <h2>Formulario</h2>    
+                        <form onSubmit={sendData}>
                             <input 
                             type='text' 
                             name='name' 
@@ -109,7 +112,9 @@ const Cart = () => {
                             />
                             
                             <button type="submit">Enviar</button>
-                        </form>) }
+                        </form>
+                    </div>    
+                        ) }
             
         </div>
     )
