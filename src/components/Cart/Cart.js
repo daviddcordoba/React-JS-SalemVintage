@@ -7,14 +7,23 @@ import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore} from 'firebase/firestore'
 
 const Cart = () => {
+    
     const {clear,cart} = useContext(CartContext)
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email:'',
+        phone:''
+    })
+    
+    const handleChange = (e) => {setFormData( {...formData, [e.target.name]: e.target.value} )}
+    
 
     const order ={
         buyer:{
-            name: '',
-            email:'',
-            phone:'',
-            adress:''
+            name: formData.name,
+            email:formData.email,
+            phone:formData.phone
         },
         items: cart.map(product => ({
             id : product.id,
@@ -22,32 +31,36 @@ const Cart = () => {
             price: product.price,
             quantity: product.quantity
         })),
-        total:cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0) ,
-    }
 
+        total: cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0) ,
+    }
+    
+    
     const [showForm, setShowForm] = useState(false)
-    const orderGenerate = () =>{
+
+    const orderGenerate = (newOrder) =>{
         /* Intancia de firestore y referencia */
         const db = getFirestore()
         const ordersCollection = collection(db,'orders')
 
         /* Promesa para que guarde order en ordersCollection*/
 
-        addDoc(ordersCollection,order)
-                                        .then( ({id}) => console.log(id))
-
+        addDoc(ordersCollection,newOrder)
+                                        .then( setTimeout(() => {setShowForm(false)}, 2000))
+                                        .catch( error => console.log('erro:', error))
         
-        setTimeout(() => {
-            setShowForm(true)
-        }, 2000);
+        
+    }
+
+    const sendData = (e) => {
+        e.preventDefault()
+        orderGenerate({...order,buyer:formData});
     }
     
-    const handlechange = (e) => {
-        order.buyer.e.target.value
-    }
     
     return(
         <div className="container cartContainer">
+            
             {
                 cart.length === 0 ? <Link to='/productos'><h2>No hay items, volver a comprar</h2> </Link>
                                     
@@ -66,35 +79,36 @@ const Cart = () => {
                                         <tfoot>
                                             <tr>
                                                 <th>Total : ${cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0)} </th>
-                                                <th><button onClick={orderGenerate}>Generar orden</button></th>
+                                                <th><button onClick={()=>setTimeout(() => {setShowForm(true)}, 2000)}>Siguiente</button></th>
                                             </tr>
                                         </tfoot>
                                     </table>)
             }
             
-            {showForm && (<form>
+            {showForm && (<form onSubmit={sendData}>
                             <input 
                             type='text' 
                             name='name' 
                             placeholder= "Ingresa tu nombre"
-                            value={order.buyer.name}
-                            onChange = {handlechange}
+                            value={formData.name}
+                            onChange = {handleChange}
                             />
                             <input 
                             type='number' 
                             name='phone'
                             placeholder="Ingresa tu telefono"
-                            value={order.buyer.phone} 
+                            value={formData.phone} 
+                            onChange = {handleChange}
                             />
                             <input 
                             type='email' 
                             name='email' 
                             placeholder="Ingresa tu email"
-                            value={order.buyer.email} 
+                            value={formData.email} 
+                            onChange = {handleChange}
                             />
                             
-                            
-                            <button>Enviar</button>
+                            <button type="submit">Enviar</button>
                         </form>) }
             
         </div>
