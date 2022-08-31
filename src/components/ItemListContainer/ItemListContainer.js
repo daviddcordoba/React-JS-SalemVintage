@@ -33,7 +33,7 @@ const ItemListContainer = ({titulo}) => {
     }
     
 
-     useEffect ( () =>{
+    useEffect ( () =>{
         getProducts()
                         .then( res => setListProducts(res))
                         .catch( err => console.log('error:',err))
@@ -43,8 +43,10 @@ const ItemListContainer = ({titulo}) => {
         
         <div className='list-products'>
             <h2>{titulo}</h2>
-            <div className='products-container'> 
-                <ItemList dataProducts={listProducts} /> {/* muestra los productos por pantalla */}
+            <div className='products-container container'>
+                <div className='row'>
+                    <ItemList dataProducts={listProducts} /> {/* muestra los productos por pantalla */}
+                </div> 
             </div>
         </div>
         

@@ -11,7 +11,11 @@ const CartList = ()=> {
             return(
                 
                     <tr key={product.id} >
-                        <td><button onClick={()=>addToCart(product,0)}><AddIcon/></button>{product.title}<button onClick={()=>{removeItem(product.id)}}><RemoveIcon/></button></td>
+                        <td>
+                            <button onClick={()=>addToCart(product,0)}><AddIcon/></button>
+                                {product.title}
+                            <button onClick={()=>{removeItem(product.id)}}><RemoveIcon/></button>
+                        </td>
                         <td>{product.quantity}</td>
                         <td>{product.price*product.quantity}</td>
                     </tr>

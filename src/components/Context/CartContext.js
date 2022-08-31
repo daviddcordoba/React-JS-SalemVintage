@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-
 export const CartContext = createContext()
 
 const CartProvider = ({children}) => {  // componente q recibe un children(hijos q reciben la info)
@@ -19,9 +18,7 @@ const CartProvider = ({children}) => {  // componente q recibe un children(hijos
             }
             else{ // si no me estaa llegando una cantidad seleccionada => aumento en uno la cantidad de mi producto
                 item.quantity++
-                console.log('entre:',item.quantity);
-                console.log(item.id);
-                setCart([...cart])
+                setCart([...cart]) // para que se actualice la cantidad
             }
         }
         else{ // NO existe item(no esta en el carrito)

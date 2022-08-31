@@ -5,6 +5,7 @@ import { useContext, useState } from "react"
 import { CartContext } from "../Context/CartContext"
 import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore} from 'firebase/firestore'
+import { toast } from 'react-toastify'
 
 const Cart = () => {
     
@@ -18,7 +19,6 @@ const Cart = () => {
     
     const handleChange = (e) => {setFormData( {...formData, [e.target.name]: e.target.value} )}
     
-
     const order ={
         buyer:{
             name: '',
@@ -34,8 +34,7 @@ const Cart = () => {
 
         total: cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0) ,
     }
-    
-    
+
     const [showForm, setShowForm] = useState(false)
 
     const orderGenerate = (newOrder) =>{
@@ -46,8 +45,13 @@ const Cart = () => {
         /* Promesa para que guarde order en ordersCollection*/
 
         addDoc(ordersCollection,newOrder)
-                                        .then( setTimeout(() => {setShowForm(false)}, 2000))
-                                        .catch( error => console.log('error:', error))
+                                        .then(res => {
+                                            toast.success("Compra realizada con EXITO ! ! " + "Tu N° de orden es: " + res.id , {theme: "dark"})
+                                                        setShowForm(false)
+                                                        
+                                        })
+                                        .catch( error => toast.error("Error al realizar la compra"+error))
+                                        .finally(()=>clear())
         
         
     }
@@ -56,7 +60,6 @@ const Cart = () => {
         e.preventDefault()
         orderGenerate({...order,buyer:formData});
     }
-    
     
     return(
         <div className="container cartContainer">
@@ -86,7 +89,8 @@ const Cart = () => {
             }
             
             {showForm && (
-                    <div>
+                
+                    <div className="text-center pt-5 ">
                         <h2>Formulario</h2>    
                         <form onSubmit={sendData}>
                             <input 
@@ -114,7 +118,9 @@ const Cart = () => {
                             <button type="submit">Enviar</button>
                         </form>
                     </div>    
-                        ) }
+                        ) 
+            }
+            
             
         </div>
     )

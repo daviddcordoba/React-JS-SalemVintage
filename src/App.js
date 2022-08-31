@@ -8,6 +8,8 @@ import Cart from './components/Cart/Cart';
 import Contact from './components/pages/Contact';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemListDetail from './components/ItemDetailContainer/ItemListDetail';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -29,9 +31,10 @@ function App() {
         </Routes>
       </div>
       
-
+      < ToastContainer /> 
     </div>
     </BrowserRouter>
+    
     
   );
 }

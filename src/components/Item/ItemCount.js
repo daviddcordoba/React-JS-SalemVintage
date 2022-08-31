@@ -22,11 +22,9 @@ const ItemCount = ({dataStock,dataDetail}) => {
 
     // agregar al carrito desde Detail
     const onAdd = () => {
-
-        /* console.log(contador); */
         addToCart(dataDetail,contador)
-
     }
+    
     return( 
         <>
             <button onClick={deleteNumber}> - </button>
