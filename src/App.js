@@ -30,6 +30,13 @@ function App() {
           <Route path='*' element= {<h1>Error 404 - Página no encontrada</h1>}></Route>
         </Routes>
       </div>
+
+      <footer>
+      <div className='text-center pt-5'>
+        <p>&copy; Copyright 2022 - David Cordoba</p>
+        <p>Todos los derechos reservados</p>
+        </div>
+      </footer>
       
       < ToastContainer /> 
     </div>
