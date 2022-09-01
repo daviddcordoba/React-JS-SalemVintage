@@ -1,6 +1,12 @@
 .detalle-producto{
     margin-top:80px;
 
+    .imageProduct{
+        img{
+            width: 100%;
+        }
+    }
+
     .descriptionProduct{
         
         h4{

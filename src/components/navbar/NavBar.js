@@ -4,10 +4,8 @@ import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
 import { Dropdown } from 'react-bootstrap';
-import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
-import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
-import DropdownItem from 'react-bootstrap/esm/DropdownItem';
-import { NavLink } from 'react-router-dom';
+import { NavLink as RRNavLink } from "react-router-dom"
+
 
 
 
@@ -41,28 +39,15 @@ function NavBar() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/categoria/camisas">Camisas</Dropdown.Item>
-                  <Dropdown.Item href="/categoria/pantalones">Pantalones</Dropdown.Item>
-                  <Dropdown.Item href="/productos">Ver todo</Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/categoria/pantalones"}>Pantalones</Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/categoria/camisas"}>Camisas</Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/productos"}>Ver todo</Dropdown.Item>
                 </Dropdown.Menu>
-              </Dropdown>          
+              </Dropdown>
+                        
           </li>  
 
-          {/* <Link to='/productos'>
-          <li >
-            Productos
-          </li>
-          </Link>
-          <Link to='/categoria/camisas'>
-          <li >
-            Camisas
-          </li>
-          </Link>
-          <Link to='/categoria/pantalones'>
-          <li >
-            Pantalones
-          </li>
-          </Link> */}
+
           <Link to='/contacto'>
           <li >
             Contacto

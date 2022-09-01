@@ -7,7 +7,7 @@ import db from "../../firebaseConfig"
 import {doc,getDoc} from 'firebase/firestore'
 
 
-const ItemListDetail = (/* {dataDetail} */) => {
+const ItemListDetail = () => {
     const [productDetail, setProductDetail] = useState({})
     
     const {id} = useParams()

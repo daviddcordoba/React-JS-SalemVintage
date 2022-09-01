@@ -10,11 +10,11 @@ const ItemDetail = ({dataDetail}) => {
     return(
             <>
         <div className="container detalle-producto">
-            <div className='row'>
-                <div className='imageProduct col-6'>
-                    <img src={image}alt='detail'/>
+            <div className='row '>
+                <div className='imageProduct col-lg-4'>
+                    <img src={image} alt='detail'/>
                 </div>
-                <div className='descriptionProduct col-6'>
+                <div className='descriptionProduct col-lg-6'>
                     <p>Inicio/ {title}</p>
                     <h1>{title}</h1>
                     <h4>${price}</h4>

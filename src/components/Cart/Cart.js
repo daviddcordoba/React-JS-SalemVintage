@@ -47,13 +47,10 @@ const Cart = () => {
         addDoc(ordersCollection,newOrder)
                                         .then(res => {
                                             toast.success("Compra realizada con EXITO ! ! " + "Tu N° de orden es: " + res.id , {theme: "dark"})
-                                                        setShowForm(false)
-                                                        
+                                            setShowForm(false)
                                         })
                                         .catch( error => toast.error("Error al realizar la compra"+error))
                                         .finally(()=>clear())
-        
-        
     }
 
     const sendData = (e) => {
